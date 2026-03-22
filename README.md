@@ -52,10 +52,16 @@ There are two kind of filtering
 ## usage
 
 ./main 
+
 ./main -l 10
+
 ./main -p 1
+
 ./main -n bash
+
 ./main --sort=pid
+
 ./main --sort=ppid
+
 ./main --sort=vmrss
 
