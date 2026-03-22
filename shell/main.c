@@ -9,8 +9,20 @@
 #include "include/parser.h"
 #include "include/history.h"
 
+int isbuiltins(char *cmd, char *builtins_list[]) {
+	for (int i = 0; i < 16; i ++) {
+		if (!strcmp(cmd, builtins_list[i])) {
+			return 1;
+		}
+	}	
+	return 0;
+}
+
 int main () {
 	init_history();
+	char *builtins_list[16] = {
+		"history"
+	};
     while (1) {
         char cwd[1024];
         getcwd(cwd, 1024);
@@ -52,7 +64,6 @@ int main () {
                     close(pipes[j][0]);
                     close(pipes[j][1]);
                 }
-
                 execvp(commands[i].argv[0], commands[i].argv);
                 exit(1);
             }

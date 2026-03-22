@@ -1,6 +1,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 #include "../include/history.h"
 
 void init_history() {
@@ -15,5 +16,15 @@ void add_history(char line[]) {
 	close(fd);
 }
 
+void display_history() {
+	int fd = open("history", O_RDONLY);
+	char buffer[4096];
+	read(fd, buffer, 4096);
+	char *tok = strtok(buffer, "\n");
+	while (tok) {
+		printf("%s", tok);
+		tok = strtok(buffer, NULL);
+	}
+}
 
 
