@@ -7,13 +7,13 @@ The goal of this project is to understand how Linux tools work.
 ## Project Overview
 This projects is a simplified implementation of the ps command in Linux
 
-It reads information directly from '/proc/[pid]/status' and display key information(PID, PPID, state and VmRSS memory usage).
+It reads information directly from `/proc/[pid]/status` and display key information(PID, PPID, state and VmRSS memory usage).
 
 ## Feature
 - List all processes
-- Filter by PID (use '-p')
-- Filter by process name (use '-n')
-- Display limited number of outputs (use '-l')
+- Filter by PID (use `-p`)
+- Filter by process name (use `-n`)
+- Display limited number of outputs (use `-l`)
 - Sort by:
     - PID
     - PPID
@@ -21,8 +21,8 @@ It reads information directly from '/proc/[pid]/status' and display key informat
 
 ---
 ### 2. Process Parsing
-- Read file using 'open()' and 'read()'
-- Parse key-value pairs using 'sscanf'
+- Read file using `open()` and `read()`
+- Parse key-value pairs using `sscanf`
 - List information:
     - Name
     - PID
@@ -33,12 +33,12 @@ It reads information directly from '/proc/[pid]/status' and display key informat
 --- 
 
 ### 3. Sorting
-Sorting is using 'qsort()' STD function with custom comparators.
+Sorting is using `qsort()` STD function with custom comparators.
 
 Available sorting options:
-- '--sort=pid'
-- '--sort=ppid'
-- '--sort=vmrss'
+- `--sort=pid`
+- `--sort=ppid`
+- `--sort=vmrss`
 
 ---
 
