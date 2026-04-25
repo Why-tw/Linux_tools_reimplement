@@ -2,6 +2,18 @@
 
 The goal of this project is to understand how Linux tools work.
 
+# Simple CPU Monitor implementation (C)
+
+## Project Overview
+This projects can monitor all CPUs usage.
+
+It reads information directly from `/proc/stat` and calcualate usage.
+
+## Usage
+gcc main.c -o cpu_monitor
+
+./cpu_monitor
+
 # Simple ps implementation (C)
 
 ## Project Overview
@@ -50,18 +62,33 @@ There are two kind of filtering
 ---
 
 ## usage
+gcc main.c -o ps
 
-./main 
+./ps
 
-./main -l 10
+./ps -l 10
 
-./main -p 1
+./ps -p 1
 
-./main -n bash
+./ps -n bash
 
-./main --sort=pid
+./ps --sort=pid
 
-./main --sort=ppid
+./ps --sort=ppid
 
-./main --sort=vmrss
+./ps --sort=vmrss
+
+# Simple Shell implementation (C)
+
+## Project Overview
+Built a mini shell supporting pipelines (|) and I/O redirection (>, <, >>) using pipe(), fork(), and dup2().
+
+## Feature
+- Support multiple `|`, `>`, `<`, `>>` 
+- Run external commands
+
+## Usage
+gcc main.c parser.c tokenizer.c -o shell
+
+./shell
 
